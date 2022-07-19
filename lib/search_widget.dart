@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SearchIcon extends StatelessWidget {
+class SearchWidget extends StatelessWidget {
+  const SearchWidget({Key? key, required this.onTap}) : super(key: key);
+
+  final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -10,9 +14,7 @@ class SearchIcon extends StatelessWidget {
             Icons.search,
             size: 34,
           ),
-          onPressed: () {
-            print('Поиск');
-          },
+          onPressed: onTap,
         ),
         const Text(
           'Search',
