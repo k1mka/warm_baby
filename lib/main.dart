@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
                     size: 34,
                   ),
                   onPressed: () {
-                    print('поиск');
+                    print('Поиск');
                   },
                 ),
                 const Text(
