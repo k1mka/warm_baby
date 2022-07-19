@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'order.dart';
+
 class MyOrders extends StatelessWidget {
-  final List<String> orders = ['Заказ №1', 'Заказ №2', 'Заказ №3'];
+  final List<Order> orders = [
+    Order(location: "Ул. Плановаяю 73 82 отделение", data: DateTime.now()),
+    Order(location: "Ул. Волонтерская 115 отделение", data: DateTime.now()),
+    Order(location: "Ул. Иллича 12/в 24 отделение", data: DateTime.now()),
+    Order(location: "Ул. Новобоварская 14 отделение", data: DateTime.now()),
+  ];
 
   MyOrders({Key? key}) : super(key: key);
 
@@ -10,14 +17,20 @@ class MyOrders extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ...orders.map(
-          (e) => Center(
-            child: Text(
-              e,
-              style: const TextStyle(fontSize: 50),
-            ),
-          ),
-        )
+        const Divider(
+          height: 24,
+          thickness: 8,
+        ),
+        ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: orders.length,
+          itemBuilder: (__, index) => Center(
+              child: Text(
+            "${orders[index].location} - ${orders[index].data} - ${orders[index].location}",
+            style: const TextStyle(fontSize: 20),
+          )),
+        ),
       ],
     );
   }
