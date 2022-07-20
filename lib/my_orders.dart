@@ -26,9 +26,17 @@ class MyOrders extends StatelessWidget {
           shrinkWrap: true,
           itemCount: orders.length,
           itemBuilder: (__, index) => Center(
-              child: Text(
-            "${orders[index].location} - ${orders[index].data} - ${orders[index].location}",
-            style: const TextStyle(fontSize: 20),
+              child: Card(
+            shadowColor: Colors.black,
+            margin: const EdgeInsets.symmetric(vertical: 8),
+            child: ListTile(
+              title: Text(orders[index].location),
+              subtitle: Text(orders[index].data.toString()),
+              trailing: IconButton(
+                icon: const Icon(Icons.edit),
+                onPressed: () {},
+              ),
+            ),
           )),
         ),
       ],
